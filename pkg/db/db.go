@@ -6,6 +6,7 @@ import (
 	"github.com/huge-kumo/net-utils/pkg/log"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
+	"os"
 )
 
 var orm *gorm.DB
@@ -16,8 +17,8 @@ func init() {
 
 	defer func() {
 		if err != nil {
-			log.GetInstance().Error("数据库模版加载失败")
-			panic(err)
+			log.GetInstance().Error("[系统错误] 数据库模版初始化失败 " + err.Error())
+			os.Exit(0)
 		}
 	}()
 

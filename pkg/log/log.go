@@ -21,7 +21,7 @@ func init() {
 	log, err = cfg.Build()
 
 	if err != nil {
-		fmt.Println("log module load failure, " + err.Error())
+		fmt.Println("日志模块初始化失败 " + err.Error())
 		os.Exit(0)
 	}
 
